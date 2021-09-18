@@ -1,0 +1,26 @@
+ {
+    "tlabel": "Basic Details",
+    "mlabel": "Name",
+    "Type": "matInput",
+    "fcname": "name",
+    "button": "Next"
+  },
+  {
+    
+    "mlabel": "Description",
+    "Type": "matInput",
+    "fcname": "description"
+  },
+  {
+    "tlabel2": "Amount & Stock",
+    "mlabel": "Amount",
+    "Type": "matInput",
+    "fcname": "amount"
+  },
+  {
+    "mlabel": "Stock",
+    "Type": "matInput",
+    "fcname": "stock",
+    "button2": "Back"
+  }
+ 

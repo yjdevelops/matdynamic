@@ -1,0 +1,42 @@
+{
+  "routes": [
+   {
+     "rname": "Home",
+     "rlink": "home"
+   },
+   {
+    "rname": "Add User",
+    "rlink": "add-user"
+  },
+  {
+    "rname": "Add Details",
+    "rlink": "add-details"
+  },
+  {
+    "ID": "Name",
+    "Label": "Name",
+    "Type": "input",
+    "Value": ""
+  },
+  {
+    "ID": "Email",
+    "Label": "Email",
+    "Type": "input",
+    "Value": ""
+  },
+  {
+    "ID": "Gender",
+    "Label": "Gender",
+    "Type": "radio",
+    "Value": "Male,Female"
+  }
+ 
+ 
+  ],
+  "formfields": [
+    
+    
+  ]
+  
+ 
+}

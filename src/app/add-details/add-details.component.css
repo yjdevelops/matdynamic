@@ -1,0 +1,14 @@
+.heading {
+   margin-left: 20%;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   color: whitesmoke;
+   background-color: dodgerblue;
+   width: 180px;
+   padding: 1%;
+}
+
+.gender {
+   padding: 5px;
+   margin: 5px;
+}

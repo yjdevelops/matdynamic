@@ -1,0 +1,40 @@
+<div class="container">
+    <h3 class="heading">Add Details</h3>
+    <form [formGroup]="registerForm" autocomplete="off">
+        <div class="userform">
+            <div class="container-fluid mb-3" *ngFor="let user of data">
+                <div [ngSwitch]="user.Type">
+                    <div *ngSwitchCase="'input'">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>{{user.Label}}</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" [formControlName]="user.ID" class="form-control" name="{{user.ID}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="'radio'">
+                        <div class="form-group form-check form-check-inline">
+                            <div class="col-md-4">
+                                <label>{{user.Label}}</label>
+                            </div>
+                            <div class="col-md-8">
+
+                                <label class="form-check-label " *ngFor="let val of user.Value.split(',')">
+                                    <input class="form-check-input"   [formControlName]="user.ID" type="radio" name="{{user.ID}}" value="{{val}}">
+                                    {{val}}
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div><button type="button"  (click)="Alldetails()"   class="btn btn-primary">Add Details</button>
+    <div class="col-md-6 mt-4">
+        {{registerForm.value | json}}
+    </div>
+</div>

@@ -20,13 +20,15 @@ import {MatTableModule} from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUserComponent } from './add-user/add-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddDetailsComponent } from './add-details/add-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddDetailsComponent
   ],
   imports: [
     BrowserModule,
