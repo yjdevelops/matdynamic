@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class DemoService {
 
   url ="https://jsonplaceholder.typicode.com/users";
-  url2="http://localhost:3000/routes";
+  url2= '/assets/appData.json';
 
  getData() {
   return this.http.get(this.url);

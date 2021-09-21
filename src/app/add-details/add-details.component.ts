@@ -13,8 +13,6 @@ registerForm: FormGroup;
 
   constructor(private service: DemoService, private fb: FormBuilder) { }
 
-  
-
   ngOnInit(): void {
     this.registerForm = this.fb.group({
 

@@ -20,15 +20,29 @@
                                 <label>{{user.Label}}</label>
                             </div>
                             <div class="col-md-8">
-
-                                <label class="form-check-label " *ngFor="let val of user.Value.split(',')">
-                                    <input class="form-check-input"   [formControlName]="user.ID" type="radio" name="{{user.ID}}" value="{{val}}">
+                                <label class="form-check-label" *ngFor="let val of user.Value.split(',')">
+                                    <input class="form-check-input" [formControlName]="user.ID" type="radio" name="{{user.ID}}" value="{{val}}">
                                     {{val}}
                                 </label>
 
                             </div>
                         </div>
                     </div>
+                    <div *ngSwitchCase="'select'">
+                        <div class="col-md-4">
+                            <label>{{user.Label}}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-select mb-3" [formControlName]="user.ID" aria-label=".form-select-lg example">
+                                <option value="-1">Select Department</option>
+                                <option *ngFor="let val of user.Value.split(',')"  value="{{val}}">{{val}}</option>
+    
+                              </select>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
