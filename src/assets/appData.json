@@ -35,7 +35,32 @@
       "Label": "Department",
       "Type": "select",
       "Value": "Finance,HR,Development,Support"
+    },
+    {
+      "ID": "Skills",
+      "Label": "Skills",
+      "Type": "select multiple",
+      "Value": "Java,PHP,Python,NodeJs"
+    },
+    {
+      "ID": "Job",
+      "Label": "Describe Your Role",
+      "Type": "textarea",
+      "Value": ""
+    },
+    {
+      "ID": "Role",
+      "Label": "Role Type",
+      "Type": "checkbox",
+      "Value": "Permanent,Intern"
+    },
+    {
+      "ID": "Date",
+      "Label": "Join Date",
+      "Type": "date",
+      "Value": ""
     }
+   
    
 ] 
     

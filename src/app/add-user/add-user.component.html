@@ -1,36 +1,90 @@
 <h3 class="heading">Register Multi-Step Form</h3>
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+  <mat-step [stepControl]="basicForm">
+    <form [formGroup]="basicForm" autocomplete="off">
       <ng-template matStepLabel>Basic Details</ng-template>
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Name" formControlName="name" required>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <textarea matInput placeholder="Description" formControlName="description" required>
-          </textarea>
-      </mat-form-field>
+      <div *ngFor="let user of fetchitems">
+        <div [ngSwitch]="user.Type">
+          <div *ngSwitchCase="'input'">
+            <mat-form-field>
+              <mat-label>{{user.Label}}</mat-label>
+              <input matInput name="{{user.ID}}" [formControlName]="user.ID">
+            </mat-form-field>
+            <br />
+          </div>
+          <div *ngSwitchCase="'radio'">
+            <div class="mb-2">
+              <mat-label class="gd">{{user.Label}}</mat-label>
+            </div>
+            <mat-radio-group class="rad" aria-label="Select an option" [formControlName]="user.ID" name="{{user.ID}}">
+              <mat-radio-button *ngFor="let val of user.Value.split(',')" value="{{val}}">{{val}}</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button class="nbutton" mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Amount & Stock</ng-template>
-      <mat-form-field>
-        <mat-label>Amount</mat-label>
-        <input matInput placeholder="Amount" formControlName="amount" required>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <mat-label>Stock</mat-label>
-        <input matInput placeholder="Stock" formControlName="stock" required>
-      </mat-form-field>
-      <br />
+  <mat-step [stepControl]="roleForm">
+    <form [formGroup]="roleForm">
+      <ng-template matStepLabel>Role Details</ng-template>
+      <div *ngFor="let role of fetchitems">
+        <div [ngSwitch]="role.Type">
+
+          <div *ngSwitchCase="'select'">
+            <mat-form-field appearance="fill">
+              <mat-label>{{role.Label}}</mat-label>
+              <mat-select name="{{role.ID}}" [formControlName]="role.ID">
+                <mat-option *ngFor="let val of role.Value.split(',')" value="{{val}}">
+                  {{val}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div *ngSwitchCase="'select multiple'">
+            <mat-form-field appearance="fill">
+              <mat-label>{{role.Label}}</mat-label>
+              <mat-select name="{{role.ID}}" [formControlName]="role.ID" multiple>
+                <mat-option *ngFor="let val of role.Value.split(',')" value="{{val}}">
+                  {{val}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div *ngSwitchCase="'textarea'">
+            <mat-form-field>
+              <mat-label>{{role.Label}}</mat-label>
+              <textarea class="tarea" [formControlName]="role.ID" matInput name="{{role.ID}}">
+                </textarea>
+            </mat-form-field>
+          </div>
+
+          <div *ngSwitchCase="'checkbox'">
+            <div>
+              <label>{{role.Label}}</label>
+            </div>
+            <section class="chk" name="{{role.ID}}">
+              <mat-checkbox [formControlName]="role.ID" *ngFor="let val of role.Value.split(',')" class="chk"
+                value="{{val}}">{{val}}</mat-checkbox>
+            </section>
+          </div>
+
+          <div *ngSwitchCase="'date'">
+            <mat-form-field appearance="fill">
+              <mat-label>{{role.Label}}</mat-label>
+              <input matInput [matDatepicker]="picker" [formControlName]="role.ID">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+
+        </div>
+      </div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -42,10 +96,10 @@
     <p>You are now done.</p>
 
     <mat-list>
-      <mat-list-item> <strong>Name:</strong> {{ this.firstFormGroup.value.name }}</mat-list-item>
-      <mat-list-item> <strong>Description:</strong> {{ this.firstFormGroup.value.description }}</mat-list-item>
-      <mat-list-item> <strong>Amount:</strong> {{ this.secondFormGroup.value.amount }}</mat-list-item>
-      <mat-list-item> <strong>Stock:</strong> {{ this.secondFormGroup.value.stock }}</mat-list-item>
+      <mat-list-item> <strong>Name:</strong> {{ this.basicForm.value.Name }}</mat-list-item>
+      <mat-list-item> <strong>Email:</strong> {{ this.basicForm.value.Email }}</mat-list-item>
+      <mat-list-item> <strong>Gender</strong> {{ this.basicForm.value.Gender }}</mat-list-item>
+      <mat-list-item> <strong>Department</strong> {{ this.roleForm.value.Department }}</mat-list-item>
     </mat-list>
 
     <div>

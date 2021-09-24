@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { DemoService } from '../demo.service';
 
 @Component({
@@ -10,37 +10,53 @@ import { DemoService } from '../demo.service';
 export class AddUserComponent implements OnInit {
 
   isLinear = true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+ basicForm: FormGroup;
+ roleForm: FormGroup;
   fetchitems: any;
 
   constructor(private _formBuilder: FormBuilder, private service: DemoService) { }
 
   ngOnInit(): void {
+    this.basicForm = this._formBuilder.group({
 
-    this.service.getItems().subscribe(res =>{
+    });
+    
+  this.roleForm = this._formBuilder.group({
+
+  });
+
+
+
+    this.service.getForm().subscribe(res =>{
       console.log(res);
       this.fetchitems = res;
+      this.createElement();
     })
 
-    this.firstFormGroup = this._formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      amount: ['', Validators.required],
-      stock: ['', Validators.required]
-    });
+    // this.firstFormGroup = this._formBuilder.group({
+    //   name: ['', Validators.required],
+    //   description: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this._formBuilder.group({
+    //   amount: ['', Validators.required],
+    //   stock: ['', Validators.required]
+    // });
     
     }
 
     submit(){
-      console.log(this.firstFormGroup.value);
-      console.log(this.secondFormGroup.value);
+      console.log(this.basicForm.value);
+      console.log(this.roleForm.value)
+     
   }
 
-  formFetch() {
-   
+  createElement() {
+    this.fetchitems.forEach((element: { ID: string; }) => {
+      this.basicForm.addControl(element.ID, new FormControl(''));
+      this.roleForm.addControl(element.ID, new FormControl(''));
+    })
+    console.log(this.basicForm);
+    console.log(this.roleForm);
   }
 
 }

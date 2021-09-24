@@ -6,3 +6,23 @@
     color:white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .rad {
+      margin-left: 15px;
+  }
+
+  .nbutton {
+      margin-top: 15px;
+      padding-top: 3px;
+      background-color:lavender
+  }
+
+  .chk {
+    margin: 12px 0;
+}
+  
+  
