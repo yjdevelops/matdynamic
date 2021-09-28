@@ -62,27 +62,6 @@
                 </textarea>
             </mat-form-field>
           </div>
-
-          <div *ngSwitchCase="'checkbox'">
-            <div>
-              <label>{{role.Label}}</label>
-            </div>
-            <section class="chk" name="{{role.ID}}">
-              <mat-checkbox [formControlName]="role.ID" *ngFor="let val of role.Value.split(',')" class="chk"
-                value="{{val}}">{{val}}</mat-checkbox>
-            </section>
-          </div>
-
-          <div *ngSwitchCase="'date'">
-            <mat-form-field appearance="fill">
-              <mat-label>{{role.Label}}</mat-label>
-              <input matInput [matDatepicker]="picker" [formControlName]="role.ID">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
-
-
         </div>
       </div>
       <div>
@@ -91,6 +70,44 @@
       </div>
     </form>
   </mat-step>
+
+  <mat-step [stepControl]="moreDetails">
+    <form [formGroup]="moreDetails">
+      <ng-template matStepLabel>More Details</ng-template>
+      <div *ngFor="let data of fetchitems">
+        <div [ngSwitch]="data.Type">
+
+          <div *ngSwitchCase="'checkbox'">
+            <div>
+              <label>{{data.Label}}</label>
+            </div>
+            <section class="chk" name="{{data.ID}}">
+              <mat-checkbox [formControlName]="data.ID" *ngFor="let val of data.Value.split(',')" class="chk"
+                value="{{val}}">{{val}}</mat-checkbox>
+            </section>
+          </div>
+
+          <div *ngSwitchCase="'date'">
+            <mat-form-field appearance="fill">
+              <mat-label>{{data.Label}}</mat-label>
+              <input matInput [matDatepicker]="picker" [formControlName]="data.ID">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+    </form>
+
+  </mat-step>
+
+
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>

@@ -25,18 +25,20 @@
       "Type": "input",
       "Value": ""
     },
-    {
-      "ID": "Job",
-      "Label": "Describe Your Role",
-      "Type": "textarea",
-      "Value": ""
-    },
+  
 
     {
       "ID": "Gender",
       "Label": "Gender",
       "Type": "radio",
       "Value": "Male,Female"
+    },
+
+    {
+      "ID": "Job",
+      "Label": "Describe Your Role",
+      "Type": "textarea",
+      "Value": ""
     },
 
 

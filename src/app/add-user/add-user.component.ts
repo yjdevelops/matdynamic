@@ -12,6 +12,7 @@ export class AddUserComponent implements OnInit {
   isLinear = true;
  basicForm: FormGroup;
  roleForm: FormGroup;
+ moreDetails: FormGroup;
   fetchitems: any;
 
   constructor(private _formBuilder: FormBuilder, private service: DemoService) { }
@@ -22,6 +23,10 @@ export class AddUserComponent implements OnInit {
     });
     
   this.roleForm = this._formBuilder.group({
+
+  });
+
+  this.moreDetails = this._formBuilder.group({
 
   });
 
@@ -54,6 +59,7 @@ export class AddUserComponent implements OnInit {
     this.fetchitems.forEach((element: { ID: string; }) => {
       this.basicForm.addControl(element.ID, new FormControl(''));
       this.roleForm.addControl(element.ID, new FormControl(''));
+      this.moreDetails.addControl(element.ID, new FormControl(''));
     })
     console.log(this.basicForm);
     console.log(this.roleForm);
