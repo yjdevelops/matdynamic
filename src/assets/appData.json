@@ -12,6 +12,7 @@
       "rname": "Add Details",
       "rlink": "add-details"
     },
+
     {
       "ID": "Name",
       "Label": "Name",
@@ -25,11 +26,20 @@
       "Value": ""
     },
     {
+      "ID": "Job",
+      "Label": "Describe Your Role",
+      "Type": "textarea",
+      "Value": ""
+    },
+
+    {
       "ID": "Gender",
       "Label": "Gender",
       "Type": "radio",
       "Value": "Male,Female"
     },
+
+
     {
       "ID": "Department",
       "Label": "Department",
@@ -42,18 +52,14 @@
       "Type": "select multiple",
       "Value": "Java,PHP,Python,NodeJs"
     },
-    {
-      "ID": "Job",
-      "Label": "Describe Your Role",
-      "Type": "textarea",
-      "Value": ""
-    },
+   
     {
       "ID": "Role",
       "Label": "Role Type",
       "Type": "checkbox",
       "Value": "Permanent,Intern"
     },
+    
     {
       "ID": "Date",
       "Label": "Join Date",
