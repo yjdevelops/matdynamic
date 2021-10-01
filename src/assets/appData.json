@@ -12,6 +12,11 @@
       "rname": "Add Details",
       "rlink": "add-details"
     },
+    {
+      "rname": "User",
+      "rlink": "user/login"
+    },
+   
 
     {
       "ID": "Name",
@@ -25,14 +30,16 @@
       "Type": "input",
       "Value": ""
     },
+    {
+      "ID": "Role",
+      "Label": "Role Type",
+      "Type": "checkbox",
+      "Value": "Permanent,Intern"
+    },
   
 
-    {
-      "ID": "Gender",
-      "Label": "Gender",
-      "Type": "radio",
-      "Value": "Male,Female"
-    },
+
+    
 
     {
       "ID": "Job",
@@ -55,19 +62,22 @@
       "Value": "Java,PHP,Python,NodeJs"
     },
    
-    {
-      "ID": "Role",
-      "Label": "Role Type",
-      "Type": "checkbox",
-      "Value": "Permanent,Intern"
-    },
+  
     
     {
       "ID": "Date",
       "Label": "Join Date",
       "Type": "date",
       "Value": ""
+    },
+    
+    {
+      "ID": "Gender",
+      "Label": "Gender",
+      "Type": "radio",
+      "Value": "Male,Female"
     }
+
    
    
 ] 
